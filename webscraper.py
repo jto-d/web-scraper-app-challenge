@@ -25,13 +25,13 @@ words_and_frequencies = {}
 soup = BeautifulSoup(page.content, 'html.parser')
 paragraph_text = soup.find_all("p")
 
-for word in paragraph_text[0].text.strip().split():
-  
-  if not word.lower()[-1].isalpha():
-    word=word[:-1]
-  print(word)
-  if word.lower() in english_words_set:
+for line in paragraph_text:
+  for word in paragraph_text.text.strip().split():
+    if not word.lower()[-1].isalpha():
+      word=word[:-1]
     print(word)
+    if word.lower() in english_words_set:
+      print(word)
 """ for p in paragraph_text:
   for word in p.text.strip().split():
     if word.lower() in words_and_frequencies:
