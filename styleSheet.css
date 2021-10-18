@@ -1,0 +1,104 @@
+.parent {
+    
+    background-color: #70AE98;
+    color: black;
+    border: 2px;
+    text-align: center;
+    position:relative;
+    font-family:monospace;
+    font-size: 3vh;
+    padding:1vh;
+    
+  }
+
+  .kidOne { 
+    background-color: #E6B655;
+    text-align: center;
+    text-size-adjust: 70%;
+    font-size: 3vh;
+  }
+  .kidTwo {
+    background-color: #F0A35E;
+    background-position: center;
+    padding: 1vh;
+    background-size: cover;
+    color:black;
+    position: sticky;
+    top: 0;
+    font-family:monospace;
+    text-align: center;
+    font-size: 2.5vh;
+    z-index: 999;
+  }
+
+  .bottom { 
+    background-color: #CA7E8D;
+    text-align: left;
+    text-size-adjust: 70%;
+    font-size: 3vh;
+  }
+
+a {
+    color:black;
+    text-decoration: none;
+  }
+
+h2 {
+  text-align: center;
+  color: #2f5f97;
+}
+
+button {
+  position: relative;
+  
+}
+input {
+  position: relative;
+  float:center;
+  
+}
+
+h3 {
+  color: #583409;
+}
+
+.boxCenter {
+  position:static;
+  left: 20%;
+  background-image: url("download.png");
+  float: left;
+  width: 45%;
+  image-resolution:initial;
+  background-size:initial;
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 300px;
+  margin-top: 10px;
+  padding: 5px;
+  border: 3px solid #a39b80;
+  text-align: center;
+}
+
+.factBox {
+  position:static;
+  left: 20%;
+  background-color:lavender;
+  float: left;
+  width: 45%;
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 300px;
+  margin-top: 10px;
+  padding: 5px;
+  border: 3px solid #FFB7B2;
+  text-align: center;
+}
+
+.wordCloudBox {
+  position: static;
+  background-color: #70AE98;
+  float:right;
+  width: 20%;
+  height: 610px;
+  border: 3px solid black;
+}

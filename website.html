@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Tag Cloud Chart</title>  
+   
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+  <link rel="stylesheet" href="styleSheet.css"></link>
+    <style>
+      html, body, #container {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      }
+    </style>    
+  </head>
+  <body>
+    
+    <div class ="parent"><a href="website.html"><h1>BiasCloud</h1></a>
+      <div class ="kidOne">Do you want to see the biases that you are faced with everyday online?
+      </div>
+    </div>
+    <div class ="kidTwo"><a href = "twitter.html">Twitter Scanner</a> | <a href = "document.html">Website Scanner</a></div>
+
+
+    <div id="container"></div>
+        <script>
+          console.log("matt")
+        anychart.onDocumentReady(function() { 
+        var table = [
+        {"x": "Evaluate Bias", "value": 10},
+        {"x": "articles", "value": 9},
+        {"x": "Twitter", "value": 8},
+        {"x": "liberal", "value": 7},
+        {"x": "conservative", "value": 8},
+        {"x": "subjective", "value": 7},
+        {"x": "facts", "value": 9},
+        {"x": "adjectives", "value": 4},
+        {"x": "scanner", "value": 3},
+        {"x": "internet", "value": 7},
+        {"x": "word cloud", "value": 4},
+        {"x": "common", "value": 1},
+        {"x": "alternative facts", "value":3},
+  
+        
+        ];
+        
+        var chart = anychart.tagCloud(table);
+        chart.title();
+        chart.angles([0, 15, -15, 30, -30]);
+        chart.container("container");
+        chart.draw();
+        }); 
+        </script>
+
+        <div class = "bottom">
+          <h2>About the Creators</h2>
+        <p>Ann Hass:</p>
+        <p>Courtenay Mackey:</p>
+        <p>Jack O'Donnell:</p>
+      </div>
+  </body>
+</html>
