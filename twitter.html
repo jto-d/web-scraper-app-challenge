@@ -18,7 +18,7 @@
   <body>
     
   <div class ="parent"><a href="website.html"><h1>BiasCloud</h1></a>
-    <div class ="kidOne">Do you want to see the biases that you are faced with everyday online?</div>
+    <div class ="kidOne">brief explination of the site</div>
   </div>
   <div class ="kidTwo"><a href = "twitter.html">Twitter Scanner</a> | <a href = "document.html">Website Scanner</a></div>
   
@@ -31,8 +31,29 @@
     <form action="https://formsubmit.co/cemackey12@gmail.com" method="POST">
       <input type="enter" name="linkName" placeholder="Enter Username:" required>
       <br>
-      <button type="submit">Submit</button>
+      <button type="submit" id="submitbutton">Submit</button>
  </form>
+
+ <script type="text/javascript">
+
+  function runPyScript(input){
+      var jqXHR = $.ajax({
+          type: "POST",
+          url: "/twitter",
+          async: false,
+          data: { mydata: input }
+      });
+
+      return jqXHR.responseText;
+  }
+
+  $('#submitbutton').click(function(){
+      datatosend = "linkName";
+      result = runPyScript(datatosend);
+      console.log('Got back ' + result);
+  });
+
+</script>
 
 </div>
 
