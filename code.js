@@ -1,3 +1,13 @@
+
+
+$.ajax({
+   type: "POST",
+   url: "~/main.py",
+   data: { param: text}
+ }).done(function( o ) {
+    console.log("yes")
+ });
+
 anychart.onDocumentReady(function() { 
  var dict = {"ann":100,
 "Courtenay" : 6,

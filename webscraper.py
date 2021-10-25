@@ -1,8 +1,8 @@
 import sys
 import requests
-import nltk
 from english_words import english_words_set
 from bs4 import BeautifulSoup
+import json
 
 
 URL = "https://www.w3schools.com/python/python_file_open.asp"
@@ -39,8 +39,11 @@ for word_check in most_common_words:
   if word_check in words_and_frequencies.keys():
     words_and_frequencies.pop(word_check)
 
+  json_words = json.dumps(words_and_frequencies, indent=4)
 
-words = list(words_and_frequencies.keys())
+print(json_words)
+
+""" words = list(words_and_frequencies.keys())
 frequencies = list(words_and_frequencies.values())
 print(words)
 print(frequencies)
@@ -55,6 +58,6 @@ textfile = open("frequencies.txt", "w")
 for element in frequencies:
     textfile.write(str(element) + "\n")
 textfile.close()
-print("completed")
+print("completed") """
 
 
