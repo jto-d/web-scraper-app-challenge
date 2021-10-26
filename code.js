@@ -1,34 +1,17 @@
+
+
+$.ajax({
+   type: "POST",
+   url: "~/main.py",
+   data: { param: text}
+ }).done(function( o ) {
+    console.log("yes")
+ });
+
 anychart.onDocumentReady(function() { 
- var dict =  {"school": 10,
- "teacher": 4,
- "teachers" : 6,
- "classes" : 7,
- "Klaus": 1,
- "Ms.": 9,
- "Mr. ": 8,
-  "homeroom": 2,
-  "proud": 3,
-  "alumni": 2,
-  "today": 5,
-  "Coungratulations": 4,
-  "South": 3,
-  "Jersey": 8,
-  "New": 4,
-  "UN": 2,
-  "Winners" : 1, 
-  "beautiful": 1,
-  "night": 2,
-  "band": 3,
-  "buddies" : 1, 
-  "freshmen" : 4,
-  "sophmores" : 3,
-  "juniors": 5,
-  "seniors": 6,
-  "show": 2,
-  "Peer": 2,
-  "Leaders" : 3, 
-  "barbecue": 1
- };
+ var dict = {"ann":100,
+"Courtenay" : 6,
+"leighty": 8};
 
 
  var table = [];
@@ -49,5 +32,3 @@ anychart.onDocumentReady(function() {
     chart.container("container");
     chart.draw();
     }); 
-
-  
