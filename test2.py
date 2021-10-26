@@ -1,29 +1,15 @@
-from logging import debug
-from flask import Flask, request
-from flask_restful import Api, Resource
-import sys
+from flask import Flask
 import requests
 from english_words import english_words_set
 from bs4 import BeautifulSoup
 import json
 
 app = Flask(__name__)
-api = Api(app)
 
 @app.route('/')
 def index():
     return 'Hello!'
 
-words = {}
-
-def remove_last_letter(w):
-    try:
-        if not w[-1].isalpha():
-            w=w[:-1]
-            w=remove_last_letter(w)
-            return w
-    except:
-        return w
 
 def scrape(URL) :
     
@@ -36,9 +22,9 @@ def scrape(URL) :
     words_and_frequencies = {}
 
     soup = BeautifulSoup(page.content, 'html.parser')
+    
     paragraph_text = soup.find_all("p")
 
-    
 
     for line in paragraph_text:
         for word in line.text.strip().split():
@@ -54,20 +40,13 @@ def scrape(URL) :
         if word_check in words_and_frequencies.keys():
             words_and_frequencies.pop(word_check)
 
-    json_words = json.dumps(words_and_frequencies, indent=4)
-    return json_words
-
-class WebPage(Resource):
-    def get(self, url):
-        return scrape("https://www.w3schools.com/python/python_file_open.asp")
+    return words_and_frequencies
 
 
+@app.route('/webpage/yes')
+def get_words():
+    return scrape("https://www.w3schools.com/python/python_file_open.asp")
 
-
-
-
-
-api.add_resource(WebPage, "/webpage/<string:url>")
-
-if __name__=="__main__":
-    app.run(debug=True)
+@app.route('/twitter')
+def get_tweets():
+    return {"words":1}
