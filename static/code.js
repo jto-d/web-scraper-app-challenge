@@ -1,17 +1,26 @@
 
+$(function(){
+	$('button').click(function(){
+		var url = $('#inputURL').val();
+        var encoded = encodeURIComponent(encodeURIComponent(url))
+		$.ajax({
+			url: 'http://127.0.0.1:5000/webpage/' + encoded,
+			data: $('form').serialize(),
+			type: 'GET',
+			success: function(response){
+				console.log(response);
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});
 
-$.ajax({
-   type: "POST",
-   url: "~/main.py",
-   data: { param: text}
- }).done(function( o ) {
-    console.log("yes")
- });
+
 
 anychart.onDocumentReady(function() { 
- var dict = {"ann":100,
-"Courtenay" : 6,
-"leighty": 8};
+ 
 
 
  var table = [];

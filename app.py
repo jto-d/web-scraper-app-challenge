@@ -1,14 +1,15 @@
-from flask import Flask
+from flask import Flask, render_template
 import requests
 from english_words import english_words_set
 from bs4 import BeautifulSoup
 import json
+import urllib.parse
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Hello!'
+    return render_template('demo.html')
 
 
 def scrape(URL) :
@@ -43,10 +44,20 @@ def scrape(URL) :
     return words_and_frequencies
 
 
-@app.route('/webpage/yes')
-def get_words():
-    return scrape("https://www.w3schools.com/python/python_file_open.asp")
+@app.route('/<name>/')
+def my_view_func(name):
+    return name
+
+@app.route('/webpage/<url>/')
+def get_words(url):
+    url = urllib.parse.unquote(str(url))
+    return scrape(url)
+    
 
 @app.route('/twitter')
 def get_tweets():
     return {"words":1}
+
+if __name__=='__main__':
+    app.debug = True
+    app.run()
